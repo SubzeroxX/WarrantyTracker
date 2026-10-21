@@ -8,43 +8,50 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Install .NET MAUI Workload
         run: dotnet workload install maui
 
       - name: Generate UTC Version Metadata
         id: versioning
-        shell: pwsh
+        shell: bash
         run: |
-          $utcNow = [DateTime]::UtcNow
-          $displayVersion = $utcNow.ToString("yyyy.MM.dd.HHmm")
-          $versionCode = $utcNow.ToString("yyMMddHHmm")
+          display_version=$(date -u +"%Y.%m.%d.%H%M")
+          version_code=$(date -u +"%y%m%d%H%M")
 
-          Write-Host "Display Version: $displayVersion"
-          Write-Host "Version Code: $versionCode"
+          echo "Display Version: $display_version"
+          echo "Version Code: $version_code"
 
-          echo "DISPLAY_VERSION=$displayVersion" >> $env:GITHUB_ENV
-          echo "VERSION_CODE=$versionCode" >> $env:GITHUB_ENV
+          echo "DISPLAY_VERSION=$display_version" >> $GITHUB_ENV
+          echo "VERSION_CODE=$version_code" >> $GITHUB_ENV
 
       - name: Publish .NET MAUI Android APK
         run: |
-          dotnet publish "YourAppFolder/YourApp.csproj" `
-            -f net10.0-android `
-            -c Release `
-            -p:ApplicationDisplayVersion=${{ env.DISPLAY_VERSION }} `
-            -p:ApplicationVersion=${{ env.VERSION_CODE }} `
+          dotnet publish "WarrantyTracker/WarrantyTracker.csproj" \
+            -f net10.0-android \
+            -c Release \
+            -p:ApplicationDisplayVersion=${{ env.DISPLAY_VERSION }} \
+            -p:ApplicationVersion=${{ env.VERSION_CODE }} \
             -p:AndroidKeyStore=false
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: warranty-tracker-beta-${{ env.DISPLAY_VERSION }}
-          path: YourAppFolder/bin/Release/net10.0-android/*-Signed.apk
+          path: WarrantyTracker/bin/Release/net10.0-android/*-Signed.apk
