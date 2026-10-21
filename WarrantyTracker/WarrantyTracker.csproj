@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net10.0-android</TargetFrameworks>
@@ -28,10 +28,10 @@
 		<MauiXamlInflator>SourceGen</MauiXamlInflator>
 
 		<!-- Display name -->
-		<ApplicationTitle>WarrantyTracker</ApplicationTitle>
+		<ApplicationTitle>Warranty Tracker</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.warrantytracker</ApplicationId>
+		<ApplicationId>hu.subzeroxx.warrantytracker</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -56,22 +56,19 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 		
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+
+        <!-- Icons -->
+        <MauiAsset Include="Resources\Icons\*" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="Dto\**" />
-	  <Compile Remove="Dto\**" />
-	  <EmbeddedResource Remove="Dto\**" />
-	  <MauiCss Remove="Dto\**" />
-	  <MauiXaml Remove="Dto\**" />
-	  <None Remove="Dto\**" />
+	  <MauiAsset Remove="Resources\Icons\right_arrow.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -86,4 +83,8 @@
 	  <Folder Include="Pages\" />
 	</ItemGroup>
 
+	<ItemGroup>
+      <MauiImage Include="Resources\Icons\funnel.svg"/>
+	  <MauiImage Include="Resources\Icons\right_arrow.svg" />
+	</ItemGroup>
 </Project>

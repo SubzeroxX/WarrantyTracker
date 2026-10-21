@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
+using WarrantyTracker.Handlers;
 
 namespace WarrantyTracker
 {
@@ -15,8 +16,10 @@ namespace WarrantyTracker
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            EntryNoUnderlineHandler.RemoveUnderlineHandler();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
