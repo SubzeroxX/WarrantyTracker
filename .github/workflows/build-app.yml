@@ -57,8 +57,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: WarrantyTracker/bin/Release/net10.0-android/*-Signed.apk
-          tag_name: v0.${{ env.DISPLAY_VERSION }}
-          name: "Warranty Tracker Beta v0.${{ env.DISPLAY_VERSION }}"
+          tag_name: v${{ env.DISPLAY_VERSION }}
+          name: "Warranty Tracker Beta v${{ env.DISPLAY_VERSION }}"
           body: "Automated .NET MAUI Android build generated at UTC time."
           draft: false
           prerelease: true
