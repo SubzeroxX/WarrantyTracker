@@ -51,8 +51,12 @@ jobs:
             -p:ApplicationVersion=${{ env.VERSION_CODE }} \
             -p:AndroidKeyStore=false
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
         with:
-          name: warranty-tracker-beta-${{ env.DISPLAY_VERSION }}
-          path: WarrantyTracker/bin/Release/net10.0-android/*-Signed.apk
+          files: WarrantyTracker/bin/Release/net10.0-android/*-Signed.apk
+          tag_name: v0.${{ env.DISPLAY_VERSION }}
+          name: "Warranty Tracker Beta v0.${{ env.DISPLAY_VERSION }}"
+          body: "Automated .NET MAUI Android build generated at UTC time."
+          draft: false
+          prerelease: true
