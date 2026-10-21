@@ -32,11 +32,12 @@ jobs:
         id: versioning
         shell: bash
         run: |
-          display_version=$(date -u +"%Y.%m.%d.%H%M")
-          version_code=$(date -u +"%y%m%d%H%M")
-
-          echo "Display Version: $display_version"
-          echo "Version Code: $version_code"
+          utc_date=$(date -u +"%Y.%m.%d")
+          
+          display_version="${utc_date}.${{ github.run_number }}"
+          
+          padded_run=$(printf "%03d" "${{ github.run_number }}")
+          version_code="$(date -u +"%y%m%d")${padded_run}"
 
           echo "DISPLAY_VERSION=$display_version" >> $GITHUB_ENV
           echo "VERSION_CODE=$version_code" >> $GITHUB_ENV
