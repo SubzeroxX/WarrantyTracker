@@ -15,26 +15,30 @@
                         </Border>
                         <Button Grid.Column="2" CornerRadius="41" ImageSource="funnel.png"/>
                     </Grid>
-                </VerticalStackLayout>
-
+                </VerticalStackLayout>                
                 <!-- Items -->
                 <ScrollView Grid.Row="1" Grid.Column="1">
                     <VerticalStackLayout Spacing="10">
                         <!-- Item -->
-                        <Border StrokeShape="RoundRectangle 21" HeightRequest="75" StrokeThickness="0" BackgroundColor="LightGray">
-                            <Grid ColumnDefinitions="Auto, *, Auto">
-                                <Border Grid.Row="0" StrokeThickness="0" StrokeShape="RoundRectangle 21" WidthRequest="75" HeightRequest="75" HorizontalOptions="Start" BackgroundColor="DarkGray">
-                                    <!-- <Image Source="p210_210p.png" Aspect="AspectFit"/> -->
-                                </Border>
-                                <VerticalStackLayout Grid.Column="1" Margin="10,0,0,0" VerticalOptions="Center">
-                                    <Label Text="Parkside Akkusfúró" FontSize="Medium" TextColor="Black"></Label>
-                                    <Label Text="Lidl, 13. ker Váci út" FontSize="Small" TextColor="Black"></Label>
-                                    <Label Text="Magdinak ajándék" FontSize="Caption" TextColor="Black"></Label>
-                                    <Label Text="Garancia még 2 évig érvényes." FontSize="Small" TextColor="#008B05"></Label>
-                                </VerticalStackLayout>
-                                <Image Grid.Column="2" Source="right_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
-                            </Grid>
-                        </Border>
+                        <ContentView>
+                            <ContentView.GestureRecognizers>  <!-- Switch between views -->
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </ContentView.GestureRecognizers>
+                            <Border StrokeShape="RoundRectangle 21" HeightRequest="75" StrokeThickness="0" BackgroundColor="LightGray" >
+                                <Grid ColumnDefinitions="Auto, *, Auto">
+                                    <Border Grid.Row="0" StrokeThickness="0" StrokeShape="RoundRectangle 21" WidthRequest="75" HeightRequest="75" HorizontalOptions="Start" BackgroundColor="DarkGray">
+                                        <!-- <Image Source="p210_210p.png" Aspect="AspectFit"/> -->
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" Margin="10,0,0,0" VerticalOptions="Center">
+                                        <Label Text="Parkside Akkusfúró" FontSize="Medium" TextColor="Black"></Label>
+                                        <Label Text="Lidl, 13. ker Váci út" FontSize="Small" TextColor="Black"></Label>
+                                        <Label Text="Magdinak ajándék" FontSize="Caption" TextColor="Black"></Label>
+                                        <Label Text="Garancia még 2 évig érvényes." FontSize="Small" TextColor="#008B05"></Label>
+                                    </VerticalStackLayout>
+                                    <Image Grid.Column="2" Source="more_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
+                                </Grid>
+                            </Border>
+                        </ContentView>
                         <!-- Item -->
                         <Border StrokeShape="RoundRectangle 21" HeightRequest="75" StrokeThickness="0" BackgroundColor="LightGray">
                             <Grid ColumnDefinitions="Auto, *, Auto">
@@ -47,7 +51,7 @@
                                     <Label Text="" FontSize="Caption" TextColor="Black"></Label>
                                     <Label Text="Garancia még 2 évig érvényes." FontSize="Small" TextColor="#008B05"></Label>
                                 </VerticalStackLayout>
-                                <Image Grid.Column="2" Source="right_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
+                                <Image Grid.Column="2" Source="more_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
                             </Grid>
                         </Border>
                         <!-- Item -->
@@ -62,7 +66,7 @@
                                     <Label Text="" FontSize="Caption" TextColor="Black"></Label>
                                     <Label Text="Garancia még 5 napig érvényes." FontSize="Small" TextColor="#F24800"></Label>
                                 </VerticalStackLayout>
-                                <Image Grid.Column="2" Source="right_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
+                                <Image Grid.Column="2" Source="more_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
                             </Grid>
                         </Border>
                         <!-- Item -->
@@ -77,7 +81,7 @@
                                     <Label Text="" FontSize="Caption" TextColor="Black"></Label>
                                     <Label Text="Garancia lejárt." FontSize="Small" TextColor="#E00606"></Label>
                                 </VerticalStackLayout>
-                                <Image Grid.Column="2" Source="right_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
+                                <Image Grid.Column="2" Source="more_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0" />
                             </Grid>
                         </Border>
                     </VerticalStackLayout>

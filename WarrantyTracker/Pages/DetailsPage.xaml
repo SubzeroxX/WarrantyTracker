@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WarrantyTracker.Pages.DetailsPage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <Grid ColumnDefinitions="23*,314*,23*" RowDefinitions="69*,1782*,125*,69*">
+        <VerticalStackLayout Grid.Column="1" Grid.Row="1" VerticalOptions="Fill">
+            <Grid Grid.Column="1" Grid.Row="0">
+                <!-- Images -->
+                <Grid Grid.Row="0" Margin="0,0,0,10">
+                    <Grid>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 21" HeightRequest="400" HorizontalOptions="Fill" BackgroundColor="Gray">
+                            <!--<Image Source="p512_512p.png" Aspect="AspectFit"/>-->
+                        </Border>
+                    </Grid>
+                    <Border StrokeShape="RoundRectangle 21" StrokeThickness="0">
+                        <Grid RowDefinitions="Auto, *, Auto" ColumnDefinitions="Auto, *, Auto">
+                            <Border Grid.Column="1" Grid.Row="0" Margin="0,10,0,10" StrokeThickness="0" StrokeShape="RoundRectangle 21" BackgroundColor="DarkGray" HorizontalOptions="Center">
+                                <Label Text="1/10" HorizontalOptions="Center" TextColor="Black" Margin="10,5,10,5"></Label>
+                            </Border>
+                            <!--<Border Grid.Column="0" Grid.Row="1" Margin="10,10,0,10" StrokeThickness="0" StrokeShape="RoundRectangle 90" BackgroundColor="DarkGray" HorizontalOptions="Start" VerticalOptions="Center">
+                                <Image Source="left_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="5,5,5,5" />
+                            </Border>-->
+                            <Button Grid.Column="0" Grid.Row="1" CornerRadius="41" ImageSource="left_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="10,10,0,10" Background="DarkGrey"/>
+                            <!--<Border Grid.Column="2" Grid.Row="1" Margin="0,10,10,10" StrokeThickness="0" StrokeShape="RoundRectangle 90" BackgroundColor="DarkGray" HorizontalOptions="Start" VerticalOptions="Center">
+                                <Image Source="right_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="5,5,5,5" />
+                            </Border>-->
+                            <Button Grid.Column="2" Grid.Row="1" CornerRadius="41" ImageSource="right_arrow.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,10,10" Background="DarkGrey"/>
+                            <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="15,10" Text="Parkside Akkus fúró" TextColor="Black" FontSize="Title"></Label>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <!-- Date -->
+            <!-- Note -->
+            <Grid Grid.Row="1" ColumnDefinitions="5*,2*" RowDefinitions="Auto, Auto" Margin="10,0,10,0">
+                <VerticalStackLayout Grid.Column="0" Grid.Row="0">
+                    <Label Text="Vásárlás dátuma: 2026.02.02" FontSize="Body"></Label>
+                    <Label Text="Garancia idő: 3év" FontSize="Body"></Label>
+                </VerticalStackLayout>
+                <Button Grid.Column="1" Grid.Row="0" CornerRadius="41" Text="Számlák"  Background="Grey"/>
+            </Grid>
+            <Label Grid.Row="2" Text="Megjegyés: Magdinak ajándék" Margin="10,5" FontSize="Small"></Label>
+
+            <!-- Location -->
+            <!-- Maps -->
+            <Grid Grid.Row="3">
+                <VerticalStackLayout VerticalOptions="Fill">
+                    <Label Text="Lidl, 13. ker Váci út" FontSize="Body" HorizontalOptions="Center" Margin="0,10"></Label>
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" BackgroundColor="DarkGray" HeightRequest="140">
+                        <Button CornerRadius="41" Text="  Megjelenítés  " HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Grey"></Button>
+                    </Border>
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+        <!-- Navigation -->
+        <Grid Grid.Column="1" Grid.Row="2" ColumnDefinitions="4*,12*,2*">
+            <Button CornerRadius="41" Grid.Column="0" Text="Vissza" HorizontalOptions="Fill" Clicked="Button_Clicked"/> <!-- Switch between views -->
+            <Button CornerRadius="41" Grid.Column="1" Text="Legközelebbi üzlet keresése" HorizontalOptions="Fill" Margin="10,0,10,0"/>
+            <Button CornerRadius="50" Grid.Column="2" ImageSource="pencil.png"  HorizontalOptions="Fill" WidthRequest="40" HeightRequest="40"/>
+        </Grid>
+    </Grid>
+</ContentPage>
