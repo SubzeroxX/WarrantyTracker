@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WarrantyTracker.Pages.EditorPage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    <Grid>
+        <Grid ColumnDefinitions="23*,314*,23*" RowDefinitions="69*,1782*,125*,69*">
+            <VerticalStackLayout Grid.Column="1" Grid.Row="1" VerticalOptions="Fill">
+                <Label Text="Új termék hozzáadása" HorizontalOptions="Center" FontSize="Large"/>
+                <VerticalStackLayout Spacing="10" VerticalOptions="Center" Margin="0,20,0,0">
+                     <!-- Product name -->
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Termék neve:" FontSize="Body" Margin="0,0,10,0" VerticalOptions="Center"/>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" HeightRequest="40" BackgroundColor="LightGrey" VerticalOptions="Center">
+                            <Entry Placeholder="Akkuscsavarozó" Margin="10,0"/>
+                        </Border>
+                    </Grid>
+                    <!-- Product brand -->
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Termék márka:" FontSize="Body" Margin="0,0,10,0" VerticalOptions="Center"/>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" HeightRequest="40" BackgroundColor="LightGrey" VerticalOptions="Center">
+                            <Entry Placeholder="Parkside" Margin="10,0"/>
+                        </Border>
+                    </Grid>
+                    <!-- Product category -->
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Termék kategória:" FontSize="Body" Margin="0,0,10,0" VerticalOptions="Center"/>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" HeightRequest="40" BackgroundColor="LightGrey" VerticalOptions="Center">
+                            <Picker Title="Szerszám" TextColor="Black" Margin="8,0">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Elektromos kéziszerszámok</x:String>
+                                        <x:String>Kerti gépek</x:String>
+                                        <x:String>Kézi szerszámok</x:String>
+                                        <x:String>Tartozékok</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Border>
+                    </Grid>
+                    <!-- Shop -->
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Üzlet:" FontSize="Body" Margin="0,0,10,0" VerticalOptions="Center"/>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" HeightRequest="40" BackgroundColor="LightGrey" VerticalOptions="Center">
+                            <Entry Placeholder="Lild, 1131 Váci út 101." Margin="10,0"/>
+                        </Border>
+                        <Button Grid.Column="1" CornerRadius="90" HorizontalOptions="End" ImageSource="map_pin.png" FontSize="Body" TextColor="Black" Background="LightGrey" BorderWidth="0" MaximumHeightRequest="40"/>
+                    </Grid>
+                    <!-- Date of purchase -->
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Vásárlás dátuma:" FontSize="Body" Margin="0,0,10,0" VerticalOptions="Center"/>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" HeightRequest="40" BackgroundColor="LightGrey" VerticalOptions="Center">
+                            <DatePicker TextColor="Black" Margin="10,0"></DatePicker>
+                        </Border>
+                        <Button Grid.Column="1" CornerRadius="90" HorizontalOptions="End" ImageSource="calendar_day.png" FontSize="Body" TextColor="Black" Background="LightGrey" BorderWidth="0" MaximumHeightRequest="40"/>
+                    </Grid>
+                    <!-- Warranty time -->
+                    <Grid ColumnSpacing="5" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Garancia idő:" FontSize="Body" Margin="0,0,10,0" VerticalOptions="Center"/>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" HeightRequest="40" BackgroundColor="LightGrey" VerticalOptions="Center">
+                            <Grid ColumnDefinitions="*,Auto,Auto">
+                                <!-- Timespan -->
+                                <Entry Grid.Column="0" Placeholder="3" Margin="10,0" TextColor="Black"/>
+
+                                <!-- Line -->
+                                <BoxView Grid.Column="1" WidthRequest="1" Background="Black" VerticalOptions="Fill" Margin="0,8"/>
+
+                                <!-- Type -->
+                                <Picker Grid.Column="2" Title="Időtartam" TextColor="Black" Margin="8,0" VerticalOptions="Center" HorizontalOptions="End" SelectedItem="év">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>év</x:String>
+                                            <x:String>hónap</x:String>
+                                            <x:String>nap</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <!-- Notes -->
+                    <Grid RowDefinitions="Auto,*">
+                        <Label Grid.Row="0" Text="Megjegyzés:" FontSize="Body" VerticalOptions="Start"/>
+                        <!-- Field -->
+                        <Grid Grid.Row="1" Margin="0,5">
+                            <VerticalStackLayout VerticalOptions="Fill">
+                                <Border StrokeThickness="0" StrokeShape="RoundRectangle 21" HorizontalOptions="Fill" BackgroundColor="LightGrey" MinimumHeightRequest="70">
+                                    <Editor Margin="10,0" Placeholder="Marinak ajándék" TextColor="Black" AutoSize="TextChanges"/>
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Grid>
+                    <!-- Photos -->
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

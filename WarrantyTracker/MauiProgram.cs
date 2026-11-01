@@ -14,9 +14,14 @@ namespace WarrantyTracker
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .ConfigureMauiHandlers(handlers =>
+                {
+                    UnderlineHandlers.NoEntryUnderlineHandler();
+                    UnderlineHandlers.NoPickerUnderlineHandler();
+                    UnderlineHandlers.NoDatePickerUnderlineHandler();
+                    UnderlineHandlers.NoEditorUnderlineHandler();
                 });
-
-            EntryNoUnderlineHandler.RemoveUnderlineHandler();
 
 #if DEBUG
             builder.Logging.AddDebug();

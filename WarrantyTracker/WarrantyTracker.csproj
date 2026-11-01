@@ -68,6 +68,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiAsset Remove="Resources\Icons\calendar_day.svg" />
+	  <MauiAsset Remove="Resources\Icons\map_pin.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
@@ -76,14 +81,21 @@
 	  <Folder Include="Models\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="ViewModels\" />
-	  <Folder Include="Pages\" />
 	</ItemGroup>
 
 	<ItemGroup>
+      <MauiImage Include="Resources\Icons\calendar_day.svg" />
       <MauiImage Include="Resources\Icons\funnel.svg" />
       <MauiImage Include="Resources\Icons\left_arrow.svg" />
+      <MauiImage Include="Resources\Icons\map_pin.svg" />
 	  <MauiImage Include="Resources\Icons\more_arrow.svg" />
 	  <MauiImage Include="Resources\Icons\pencil.svg" />
 	  <MauiImage Include="Resources\Icons\right_arrow.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\EditorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

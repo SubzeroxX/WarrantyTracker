@@ -13,5 +13,10 @@ namespace WarrantyTracker
         {
             Shell.Current.GoToAsync(nameof(DetailsPage)); // Switch between views
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync(nameof(EditorPage));
+        }
     }
 }

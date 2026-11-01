@@ -8,6 +8,7 @@ namespace WarrantyTracker
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(DetailsPage), typeof(DetailsPage));
+            Routing.RegisterRoute(nameof(EditorPage), typeof(EditorPage));
         }
     }
 }
